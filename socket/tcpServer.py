@@ -1,3 +1,7 @@
+#!usr/bin/env pathon
+# -*- coding: UTF-8 -*-
+
+
 # 服务器
 import socket
 import random
@@ -25,3 +29,4 @@ while True:
         conn.send(data)
         conn.send(str(random.randint(1, 1000)).encode())
     conn.close()
+sk.close()

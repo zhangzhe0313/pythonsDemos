@@ -1,3 +1,7 @@
+#!usr/bin/env pathon
+# -*- coding: UTF-8 -*-
+
+
 # 接受文件服务器
 import socket
 
