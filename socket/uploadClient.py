@@ -9,11 +9,16 @@ ip_port = ('127.0.0.1', 8888)
 sk.connect(ip_port)
 data = sk.recv(1024)
 print(data.decode())
-with open('tcpClient.py', 'rb') as f:
+try:
+    f = open('tcpClient.py', 'rb')
+except IOError as err:
+    print(err)
+else:
     for i in f:
         sk.send(i)
         data = sk.recv(1024)
         if data != b'success':
             break
+finally:
     f.close()
 sk.close()
