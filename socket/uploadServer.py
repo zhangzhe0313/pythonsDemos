@@ -33,6 +33,8 @@ if info == b'onReady':
                     break
                 else:
                     f.write(data)
+                    conn.send('recieve over'.encode())
+                    print('服务器 recieve over')
         conn.close()
         print('服务器接收完成')
     # 捕获异常类型：如果不加类型则会捕获所有类型，若使用Exception 则会捕获除了与程序退出相关的其他异常

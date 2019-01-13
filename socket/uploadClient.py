@@ -27,6 +27,9 @@ try:
             print('服务器已准备就绪: %s' % (svBack.decode()))
             for i in f:
                 sk.send(i)
+                if sk.recv(1024) == b'recieve over':
+                    print('recieve over')
+                    continue
             # 关闭连接
             finish = 'finish'
             sk.send(finish.encode())
