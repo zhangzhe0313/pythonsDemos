@@ -10,6 +10,7 @@ from clss.slots import Account
 if __name__ == '__main__':
 
     # 类的特性测试
+    print(type(Circle))
     cl = Circle(20)
     # cl = Circle(20) 会执行两个阶段：
     #     cl = Circle.__new__(20)
@@ -25,3 +26,4 @@ if __name__ == '__main__':
     act.printAccount()
     #  为act添加新的属性，则会报错，因为属性名不存在于__slots__中
     act.age = 10
+
