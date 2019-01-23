@@ -67,3 +67,10 @@ class UrlManager(object):
         :return:
         '''
         return len(self.new_urls)
+
+    def get_index_zero_url(self):
+        '''
+        获取index = 0 的url
+        :return:
+        '''
+        return self.new_urls.pop(0)
