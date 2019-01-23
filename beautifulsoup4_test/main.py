@@ -10,6 +10,8 @@ from beautifulsoup4_test.htmlstrparser.htmlParser import HtmlParser
 from urllib.parse import urljoin
 from beautifulsoup4_test.storageresult.storageInfo import saveToTxt, saveToFile
 from beautifulsoup4_test.urlmanager.urlManger import UrlManager
+from time import sleep
+import re
 
 class MainHandler(object):
     def __init__(self, baseUrl, targetUrl):
@@ -33,7 +35,6 @@ class MainHandler(object):
         self.urlManager.add_new_urls(html_hrefs)
 
         # step2 循环所有的章节href下载对应的内容
-        cnt = 0
         while self.urlManager.has_new_url():
             # 获取一条待处理的url
             new_url = self.urlManager.get_new_url()
@@ -41,18 +42,17 @@ class MainHandler(object):
             html_str = self.htmlDownLoader.downloadHtml(new_url)
             # 处理待处理的url，获取响应的内容与标题
             if html_str != None:
-                # 统计下载数量
-                cnt += 1
-                print('new_url %d: %s' % (cnt, new_url))
-
                 title_url, content_url = self.htmlParser.parserContent(html_str.replace('<br>', '').replace('\n', ''))
                 if title_url != None and content_url != None:
+                    # 统计下载数量
+                    print('dapter: %s' % (title_url))
+
                     # 将解析结果存在文件中
                     saveToTxt('fuTianJi.txt', title_url+'\n'+ content_url.replace(' ', '')+'\n')
-            else:
-               continue
-
-
+                    # 每次结束暂停三十秒，防止被阻止
+                    sleep(30)
+                else:
+                   continue
 
 # 爬小说测试
 if __name__ == '__main__':
