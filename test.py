@@ -12,3 +12,5 @@ if __name__ == '__main__':
     c = datetime.date.isoweekday(datetime.date.today())
     print(d, c)
     print(datetime.datetime.now())
+
+    print('id[a]', id('a')) # id() 获取内存地址
