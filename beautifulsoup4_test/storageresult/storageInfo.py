@@ -17,7 +17,7 @@ def saveToFile(file_name, datas):
 
 def saveToTxt(file_name, datas):
     try:
-        with open(file_name, 'a', encoding='utf-8') as f:
+        with open(file_name, 'w+', encoding='utf-8') as f:
             f.write(datas)
     except IOError as err:
         print('IOError: %s' % err)

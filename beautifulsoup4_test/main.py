@@ -57,12 +57,12 @@ class MainHandler(object):
 # 爬小说测试
 if __name__ == '__main__':
     # 伏天氏
-    # base_url = 'http://www.biquyun.com'
-    # test_target = '/8_8568/'
+    base_url = 'http://www.biquyun.com'
+    test_target = '/8_8568/'
 
     # 元尊
-    base_url = 'https://www.farpop.com'
-    test_target = '/0_4/'
+    # base_url = 'https://www.farpop.com'
+    # test_target = '/0_4/'
 
     mainHandler = MainHandler(base_url, test_target)
     mainHandler.crawlByUrl()

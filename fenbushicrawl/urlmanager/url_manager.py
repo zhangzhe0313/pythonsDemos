@@ -24,16 +24,16 @@ class UrlManager(object):
         判断是否有待爬取url
         :return: True or False
         '''
-        return self._newUrlsSize() != 0
+        return self.newUrlsSize() != 0
 
-    def _newUrlsSize(self):
+    def newUrlsSize(self):
         '''
         获取未爬取url集合大小
         :return:
         '''
         return len(self.new_urls)
 
-    def _oldUrlsSize(self):
+    def oldUrlsSize(self):
         '''
         获取已爬取url集合
         :return:
